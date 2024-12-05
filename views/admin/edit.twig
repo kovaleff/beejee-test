@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div class="content-inner p-4 d-flex align-items-start">
+        <div class="row mb-3 p-4">
+            <form method="post" action="/admin/task/{{ task.id }}">
+                <div class="mb-3">
+                    <h3>Редактирование задачи: {{ task.id }}</h3>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Выполнено</label>
+                    <input type="checkbox" class="" name="is_done" {% if task.is_done %} checked {% endif %}>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Задача</label>
+                    <textarea class="form-control" name="task" rows="3" required>{{ task.task }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
